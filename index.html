@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <title>Check Your Battery</title>
+
+        <link type="text/css" rel="stylesheet" href="css/jquery-ui.min.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <style>
+          .content1, .content2, .content3, .perspective-btn2, .perspective-btn3{display: none;}
+        </style>
+    </head>
+
+    <body>
+        <main class="main-wrap">
+            <section class="content-wrap">
+                <div class="common-wrap clear">
+                    <h5>Cardie Central / Check Your Battery</h5>
+                     <div class="content-text">
+                         <h2>Check Your Battery</h2>
+                         <p> Have you noticed how aware we all are of our cell phone charge levels — while basically ignoring our own?! It’s so easy to keep pushing, pushing, pushing without recharging. And, if we keep that up long enough, our bodies, minds and spirits will inevitably shut down. </p>
+                         <p> Below you’ll find a simple focusing tool created with the thought that becoming more conscious of our energy levels can be a great first step toward taking better care of ourselves — being clear on where we are helps us get and stay where we want to be.</p>
+                         <p>To give it a try, slide the battery charge level to match how you feel. Then click on PERSPECTIVE to get just that. Use this tool as often as you like ... we built it just to help you take care of you.</p>
+                     </div>
+                    <div class="battery-charge-wrap clear">
+                         <div class="battery-wrap">
+                              <div class="battery-inner">
+                                  <div class="energy-levels">
+                                  </div> 
+                              </div>
+                             <div class="battery-head"></div>
+                         </div>
+                        <div class="battery-range-wrap">
+                           <div class="left-text"> COMPLETELY DRAINED </div>
+                           <div class="right-text">FULLY CHARGED</div>
+                           <div class="battery-range-inner">
+                               <span id="uislider">
+                                   <div class="first"></div>
+                                   <div class="second"></div>
+                                   <div class="third"></div>
+                               </span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="btn-wrap">
+                         <a href="#" class="btn perspective-btn1">PERSPECTIVE</a>
+                         <a href="#" class="btn perspective-btn2">PERSPECTIVE</a>
+                         <a href="#" class="btn perspective-btn3">PERSPECTIVE</a>
+                     </div>
+                     <div class="content1">
+                       <p>As exhausted as you may feel at the moment, the good news is that you’ve just begun
+                        to take better care of yourself by simply being here and using this tool. Now the question is: How willing are you to give yourself credit for taking the time to Check Your
+                        Battery as you’ve done just now? Does acknowleding yourself in this small way come
+                        easily, or do you find that hard to do? Cardies tend to be exceptionally thoughtful and
+                        giving people. When taking credit for good, little things we do for ourselves (not to
+                        mention others) is challenging, is it any wonder that we don’t do more toward feeling
+                        fully charged? If/when ready, here are some possible 1<a href="#">Next Steps</a>. </p>
+                    </div>
+                     <div class="content2">
+                       <p>As exhausted as you may feel at the moment, the good news is that you’ve just begun
+                        to take better care of yourself by simply being here and using this tool. Now the question is: How willing are you to give yourself credit for taking the time to Check Your
+                        Battery as you’ve done just now? Does acknowleding yourself in this small way come
+                        easily, or do you find that hard to do? Cardies tend to be exceptionally thoughtful and
+                        giving people. When taking credit for good, little things we do for ourselves (not to
+                        mention others) is challenging, is it any wonder that we don’t do more toward feeling
+                        fully charged? If/when ready, here are some possible 2<a href="#">Next Steps</a>. </p>
+                    </div>
+                     <div class="content3">
+                       <p>As exhausted as you may feel at the moment, the good news is that you’ve just begun
+                        to take better care of yourself by simply being here and using this tool. Now the question is: How willing are you to give yourself credit for taking the time to Check Your
+                        Battery as you’ve done just now? Does acknowleding yourself in this small way come
+                        easily, or do you find that hard to do? Cardies tend to be exceptionally thoughtful and
+                        giving people. When taking credit for good, little things we do for ourselves (not to
+                        mention others) is challenging, is it any wonder that we don’t do more toward feeling
+                        fully charged? If/when ready, here are some possible 3<a href="#">Next Steps</a>. </p>
+                    </div>   
+                </div>
+                
+            </section>
+        </main>
+
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/common-scripts.js"></script>
+        
+        <script>
+            $( function() {
+                
+            $( "#uislider" ).slider({
+            range: "max",
+            min: 1,
+            max: 100,
+            slide: function( event, ui ) {
+            $( "#idnumber" ).val( ui.value );
+            //sliderValue = ui.value; 
+            if( ui.value >= 1 && ui.value <= 30 ) {
+            $('.perspective-btn2').css("display" , "none");
+            $('.perspective-btn3').css("display" , "none");
+            $('.perspective-btn1').css("display" , "block");
+            $('.energy-levels').css("background-color" , 'red');
+
+            }
+            if(ui.value >= 31 && ui.value <= 70 ) {
+            $('.perspective-btn1').css("display" , "none");
+            $('.perspective-btn3').css("display" , "none");
+            $('.perspective-btn2').css("display" , "block");
+            $('.energy-levels').css("background-color" , '#DAAD25');
+            }
+            if( ui.value >= 71 && ui.value <= 100 ) {
+            $('.perspective-btn1').css("display" , "none");
+            $('.perspective-btn2').css("display" , "none");
+            $('.perspective-btn3').css("display" , "block");
+            $('.energy-levels').css("background-color" , '#52D668');
+            }
+            }
+            });
+
+
+            $( "#idnumber" ).val( $( "#uislider" ).slider( "value" ) );
+            $('.perspective-btn1').click(function(e){
+                e.preventDefault();
+            $('.content2').css("display" , "none");
+            $('.content3').css("display" , "none");
+            $('.content1').css("display" , "block");
+            });
+            $('.perspective-btn2').click(function(e){
+                e.preventDefault();
+            $('.content1').css("display" , "none");
+            $('.content3').css("display" , "none");
+            $('.content2').css("display" , "block");
+            });
+            $('.perspective-btn3').click(function(e){
+                e.preventDefault();
+            $('.content1').css("display" , "none");
+            $('.content2').css("display" , "none");
+            $('.content3').css("display" , "block");
+            });
+              
+            } );
+        </script>
+    </body>
+</html>
